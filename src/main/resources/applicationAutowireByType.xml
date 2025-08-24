@@ -1,0 +1,10 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--  bean definitions here  -->
+    <bean id="specification" class="car.example.Autowire.Type.Specification">
+        <property name="make" value="Toyota"/>
+        <property name="model" value="Corolla"/>
+    </bean>
+    <bean id="myCar" class="car.example.Autowire.Type.Car" autowire="byType"/>
+
+    <!--    by type will search the bean for specific type -> in this case it is specification not second-->
+</beans>
