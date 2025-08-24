@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="userDataProvider" class="car.example.IOC.bean.coupling.UserDatabaseProvider"/>
+    <bean id="newDatabaseProvider" class="car.example.IOC.bean.coupling.NewDatabaseProvider"/>
+
+    <bean id="webServiceDataProvider" class="car.example.IOC.bean.coupling.WebServiceDataProvider"/>
+
+    <bean id = "userManagerwithuserDataProvider" class="car.example.IOC.bean.coupling.UserManager">
+        <constructor-arg ref="userDataProvider"/>
+    </bean>
+    <bean id = "userManagerwithnewDatabaseProvider" class="car.example.IOC.bean.coupling.UserManager">
+        <constructor-arg ref="newDatabaseProvider"/>
+    </bean>
+    <bean id = "userManagerwithwebServiceDataProvider" class="car.example.IOC.bean.coupling.UserManager">
+        <constructor-arg ref="webServiceDataProvider"/>
+    </bean>
+</beans>
